@@ -7,7 +7,7 @@ def main():
     goal_pos = (9, 9)
     obstacles = [(1,2), (2,2), (3,1), (4,4), (5,6), (7,3)]
 
-    available_agents = ["random", "bfs"]  # extend this as you add more agents
+    available_agents = AgentFactory.get_available_agents()
     print("Available agents:", ", ".join(available_agents))
 
     agent_choice = input("Select an agent type: ").strip().lower()

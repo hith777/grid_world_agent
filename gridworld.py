@@ -7,6 +7,7 @@ class GridWorld:
     def __init__(self, size: int):
         self.size = size
         self.grid = np.zeros((size, size), dtype=int)
+        self.start = None
 
     def place_goal(self, position: Tuple[int, int]):
         self.grid[position] = GOAL
@@ -20,6 +21,11 @@ class GridWorld:
         return (0 <= x < self.size and
                 0 <= y < self.size and
                 self.grid[position] != OBSTACLE)
+
+    def setup_grid(self, start_pos: Tuple[int, int], goal_pos: Tuple[int, int], obstacles: List[Tuple[int, int]]):
+        self.start = start_pos
+        self.place_goal(goal_pos)
+        self.place_obstacles(obstacles)
 
     def display(self, agent_position: Tuple[int, int]):
         symbols = {EMPTY: ".", GOAL: "G", OBSTACLE: "X"}
