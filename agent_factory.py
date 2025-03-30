@@ -2,6 +2,7 @@ from agents.random_agent import RandomAgent
 from agents.bfs_agent import BFSAgent
 from agents.astar_agent import AStarAgent
 from agents.q_learning_agent import QLearningAgent
+from agents.dqn_agent import DQNAgent
 
 class AgentFactory:
     _agents = {
@@ -9,6 +10,7 @@ class AgentFactory:
         "bfs": BFSAgent,
         "astar": AStarAgent,
         "qlearning": QLearningAgent,
+        "deepq": DQNAgent,
     }
 
     @classmethod
